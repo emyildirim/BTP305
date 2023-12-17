@@ -1,0 +1,40 @@
+A functor is a function operator 'operator()', the objects are able to
+be used like a function and it will perform any complex operations.
+A lambda expression is an anonymous function that mostly used and defined
+in inline and it is an easy way to use functions without needing a separate
+definition in class but it is mostly used for small operations. 
+
+Definition difference:
+//functor:
+void SpellChecker::operator()(std::string& text) {
+	...
+}
+
+//lambda expression:
+auto fixPrice = [usdToCadRate, gbpToCadRate](sdds::Book& book) {
+	...
+};
+
+To make the SpellChecker without exceptions, I can put the same
+condition but instead of throwing an exception in the function
+,I can make the condition so that if it is true then do no operations.
+Also in client side, I can avoid manual entry of Collection array's size
+by defining a constant global variable in Collection.h and use it
+in loops to print out SpellCheck Statistics. However exceptions will
+come in handy because they will provide info for the client
+and it will be more useful for the debugging in the future.
+
+To avoid identical login for loading data in Movie and Book classes
+, I can implement a class to extract the info from the files and 
+make Movie and Book classes use that class's functions to do most
+of the file handling.
+
+The Movie and Book classes have a custom constructor to extract
+the info from the files and we actually do not need a default
+constructor because we can initialize the variables in header file
+without any default constructor. If we need to create an object in
+client without using any custom constructors then we have to define
+it so that the compiler will have an idea of how to initialize the object.
+
+
+

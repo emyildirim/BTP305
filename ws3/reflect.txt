@@ -1,0 +1,31 @@
+The reason for defining the class objects outside of the 
+the class definition is specifically to avoid linker errors
+because when we create a template class object in another
+file other than the header file, during the compilation
+the linker can not find the static class member which is 
+initialized according to a certain size or an object type
+as we did for the Collection class.
+For static member initialization for fundamental types:
+template <typename T, unsigned int C>
+T Collection<T, C>::m_smallestItem = { T(9999) };
+...
+For static member initialization for object type Book (template specialization):
+template <>
+Book Collection<Book, 10>::m_smallestItem = Book("",1, 10000);
+
+Template specialization for Book classes was necesarry because
+compared to fundamental types, a Book is an object and it has 
+multiple private members, the compiler does not know how 
+to initialize or handle them when we used it in the class template (Collection)
+For the size 72, we needed that size for OrderedCollection class because 
+it is also a object type which compiler does not know how to initialize.
+
+I had a problem when I was implementing the class template
+functions (Collection) because I put all the implementations
+in Collection.cpp and it caused linker errors since the class template
+functions are defined in other than the header file, but later
+when I searched and read the class notes, I realized I should not
+use another file to implement the functions and also figured 
+out the template specializations later on.
+
+

@@ -1,0 +1,84 @@
+We have used composition for CheeseShop and aggregation
+for CheeseParty, CheeseShop class has the ability to use
+the Cheese objects by hard copying the passed pointer 
+(allocating a brand new object) and decides the lifetime
+of its allocated Cheese objects. However CheeseParty class 
+uses only shallow copy to assign the addresses of the Cheese 
+pointers to the double pointer so it does not have 
+ownership or the control of lifetime of the Cheese objects.
+The client (main function) decides the lifetime of the objects
+for CheeseParty class.
+
+For the CheeseShop, we need to make hard copy in move and copy
+functions because it has complete ownership and does all the
+operations for the Cheese objects. For the CheeseParty, we need
+to make shallow copy, which does not require you to copy the values,
+instead only assigns the already existent Cheese objects' addresses
+because the client handles the rest.
+
+//hard copy
+for (int i = 0; i < m_size; ++i) {
+	tmp[i] = new Cheese(*m_cheeses[i]);
+}
+
+//shallow copy
+for (int i = 0; i < m_pSize; ++i) {
+	tmp[i] = m_pCheeses[i];
+}
+
+In CheeseShop, the addCheese function assignes the
+objects to a tmp variable by hard copy and after
+reallocating the double pointer with a new size 
+we assign back with copy assignment from tmp and adding 
+the new object by copying the values with a copy 
+constructor to a new allocated Cheese obj every time. 
+In CheeseParty we use the same process as the CheeseShop 
+except, we do not need copy constuctor or assignment, 
+instead we just assign the addresses of the Cheese objects.
+
+If we need to implement removeCheese function for CheeseShop
+we need to deallocate the cheese and initialize it with nullptr
+to avoid errors.
+
+void removeCheese(){
+	//find the ones that have weight : 0
+	for(int i = 0; i < size; ++i){
+		if(cheeses[i]->showWeight() == 0){
+			//deallocate
+			delete cheeses[i];
+			//initialize back
+			cheeses[i] = nullptr;
+
+			const Cheese** tmp = new const Cheese*[size];
+			for(int i = 0; i < size - 1; ++i){
+				if(cheeses[i] != nullptr){
+					tmp[i] = new Cheese(*cheeses[i]);
+				}else{
+					i--;
+				}
+			}
+
+			for (int i = 0; i < size; ++i)
+				if(cheeses[i] != nullptr)
+					delete tmp[i];
+			delete[] tmp;
+			cheeses = new const Cheese*[size-1];
+
+			for(int i = 0; i < size; ++i){
+				cheeses[i] = new Cheese(*tmp[i])
+			}
+
+			for (int i = 0; i < size; ++i)
+				delete tmp[i];
+			delete[] tmp;
+		}
+	}
+}
+
+
+
+
+
+
+
+
