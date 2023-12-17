@@ -1,7 +1,7 @@
 # BTP305
 Object-Oriented Software Development Using C++
 
-## My Learning Outcomes
+## Learning Outcomes
 - Design collections of model objects using sequential containers and multi-dimensional arrays to solve a complex systems or business problem.
 - Create function objects and closures to customize a programming solution for a particular application.
 - Model generalization and specialization using single and multiple inheritance to minimize the duplication of code in complex hierarchies.
