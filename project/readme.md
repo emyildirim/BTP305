@@ -1,4 +1,5 @@
 #Project Overview
+
 **The purpose of this project is to put C++ Object Oriented skills to practice by developing a simulation of an assembly line with any number of stations. A line with 3 Stations is illustrated in the figure below.**
 
 ![image](https://github.com/emyildirim/BTP305/assets/105301175/7110e3f9-ac52-4605-86f2-05a358464f39)
