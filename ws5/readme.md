@@ -12,8 +12,8 @@ My design works with collections of books and collections of movies, both loaded
 
 In case of exceptional circumstances, my design generates exceptions and subsequently handles them
 
-the functor loads the misspelled words from a file, but if that file is missing, generates an exception.
-iterating over the collection using indices, my design generates an exception if an index is invalid.
+- the functor loads the misspelled words from a file, but if that file is missing, generates an exception.
+- iterating over the collection using indices, my design generates an exception if an index is invalid.
 
 Demonstarted key points:
 - design and code a templated class that allocates and deallocates dynamic memory
