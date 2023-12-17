@@ -1,0 +1,21 @@
+The external linkage is used for global variables
+which enables all the translation units to access the variable
+like other documents that have the header file can access but
+in internal linkage, only the translation unit which is
+the document that has been declared in can use that global variable.
+So I used external keyword for g_taxrate and g_discount, and the main
+function in w1_p2.cpp could able to use that global variable and could change the values.
+
+I first encountered a problem about how to declare and initialize
+the counter variable but after some realization and research,
+I used a "static int counter" as a custom private member
+which is declared once and for all the objects and used until
+the end of the program without getting deallocated.
+So I could be able to count the number of people that displayed.
+
+I first used null terminated character array (string) then I used a std::string type object 
+for m_name and m_description because std::string is allocated and deallocated by the
+library. I included string library to use std::getline() in RideRequest source file because it accepts istream& and std::string
+as the arguments. 
+
+

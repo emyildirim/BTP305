@@ -1,0 +1,27 @@
+The difference between copy and move operations is that
+copy operations require hard copy only but in move operations
+you need to move the resources such as addresses and 
+make a shallow copy, also delete the other's resources when you complete
+moving the resources because it is basically cutting from one and
+pasting to another's resource. So making a hard copy takes more time since you are
+copying each value from one to another and in the move operations you are just moving resources by shallow copy.
+
+I faced a problem while rereading the file, at first
+I opened and closed the file twice, one for counting lines and the other one for reading data.
+Then I realized I could clear the flags and move the cursor to the beginning of the file and 
+no need for a second time to open the file.
+file.clear() // sets the flags to clear
+file.seek(0) // set the cursor to the beginning of the file : 0
+If we do not want to reread the file I think we can dynamically expand the size of 
+AirportLog array one by one each line we read and add the new data to the array. But 
+it is going to take a lot of memory since each time we try to add new data we should expand the size dynamically
+we need to make a tmp variable and make hard copy then resize the original array and copy back to the original from tmp.
+This way we can read from the file once and each time we have new data to read, just increase the array's size by one (by resizing) and add the
+new data.
+
+steady_clock does not have any relation to daylight or calender
+adjustments, it only calculates a consistent and reliable time since it
+can not be modified by the user and used for performance measurements.
+However, system_clock is a real-time clock that is based on real-world time 
+events. It can be modified according to the location and current time.
+It is used best for the current date and time.
