@@ -1,5 +1,5 @@
 # BTP305
-Object-Oriented Software Development Using C++ by **Seneca College**
+Object-Oriented Software Development Using C++ from **[Seneca College](https://www.senecapolytechnic.ca/home.html)**
 
 ## Learning Outcomes
 - Design collections of model objects using sequential containers and multi-dimensional arrays to solve a complex systems or business problem.
