@@ -15,7 +15,7 @@ In case of exceptional circumstances, my design generates exceptions and subsequ
 - the functor loads the misspelled words from a file, but if that file is missing, generates an exception.
 - iterating over the collection using indices, my design generates an exception if an index is invalid.
 
-Demonstarted key points:
+Demonstrated key points:
 - design and code a templated class that allocates and deallocates dynamic memory
 - design and code a function object
 - design and code a lambda expression
