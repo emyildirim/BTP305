@@ -1,0 +1,32 @@
+Instead of for or while loops, I used std::for_each because
+it is convinient to use with lambda expressions, I also
+calculated the num of total deathes and cases in countries.
+For the sorting, I used lambda expression in std::sort
+to get a specific sorted order according to the country
+parameter.
+For the inCollection function, I used std::anyof algorithm
+to return the one that matched the provided parameter conditions
+instead of searching the one Covid object with a for or while loop.
+For the getListForDeaths function, I used std::copy_if algorithm 
+to copy Covid objects into a list when the condition is met, I did not
+pick the std::copy because it only helps you to copy without using
+condition.
+
+Advantages of STL algorithms compare to implementing yourself, when you try
+to code the logic you waste extra time and try to find the most efficient way
+possible, so it saves time, also when you are using STL containers like
+std::vector or std::list, it is really the best choice and effective for
+long and complex projects.
+
+I have implmented the sort function with if and else conditional statements
+and one of the default behaviour of the function is if the field is empty
+default parameter is used (country) and for the second one if the client
+enters a invalid field parameter then it will automatically assume client
+wants the sorting order accoring to the less num of deaths in the city.
+
+...
+else {
+	std::sort(m_collection.begin(), m_collection.end(), [](const Covid& a, const Covid& b) {
+		return a.m_numOfDeaths < b.m_numOfDeaths;
+	});
+}

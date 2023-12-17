@@ -1,0 +1,21 @@
+We need to deallocate the memory used in vector of resources
+because when we are creating the filesystem structure and we allocated
+Resource* objects so that we can use polymorphism behaviour to 
+convert Resource* objects to Directory* and File* objects at runtime.
+
+To access the Directory objects' functions stored in a Resource*, I used
+dynamic_cast because we are converting Resource* to Directory*
+at runtime and then I can call a member function of
+Directory class. (dynamic_cast is only used between polymorphic types)
+
+Directory.cpp - line 81
+ex: Directory* subDirectory = dynamic_cast<Directory*>(resource);
+
+I can not use "std::vector<sdds::Resource>" instead of 
+"std::vector<sdds::Resource*>" in this workshop because I need
+to convert polymorphic base class to child classes using dynamic_cast.
+I can do that using either a pointer or a reference because
+the dynamic cast conversion can be only possible with:
+
+ex: dynamic_cast<pointer of base class>(pointer of derived class)
+ex: dynamic_cast<reference of base class>(reference of derived class)

@@ -1,0 +1,45 @@
+Smart pointers gives you memory management advantage
+compare to raw pointers because they are automatically deallocated
+when they go out of scope and no longer in use.
+For the raw pointers you need to perform deallocation by yourself
+if you forget to manage the memory it will cause memory leaks.
+
+//Smart Pointer Use
+std::unique_ptr<Profile> newProfile = std::make_unique<Profile>(allProfiles[i].m_name, allProfiles[i].m_address, allProfiles[i].m_age);
+    try {
+        newProfile->validateAddress();
+        result += newProfile;
+    }
+    catch (...) {
+        throw;
+    }
+
+//Raw Pointer Use
+Profile* newProfile = new Profile(allProfiles[i].m_name, allProfiles[i].m_address, allProfiles[i].m_age);               
+    try{
+        newProfile->validateAddress();
+        result += newProfile;
+    }
+    catch (...) {
+        delete newProfile;
+        throw;
+        
+    }
+    delete newProfile;
+
+
+vector::push_back function is making copies of Profile objects
+using copy constructor because a new vector is being created
+every time we tried to add a new object so all the objects from
+previous objects is copied to the new one also the previous objects
+that we copied from goes out of scope and we are deallocating (raw pointer) or 
+automatically deallocated (smart pointer).
+To reduce the number of copies made, we can use move constructor
+to copy resources of the objects insead of copy constructor but 
+need to deallocate all the objects' resources at the end of the program
+in the destuctor.
+
+If we try to use std::move functions since there is no explicit
+move constructor, it does not work with vector::push_back function
+becuase it need will perform hard copying but move constructo or std::move
+function performs shallow copy.
