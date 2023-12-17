@@ -3,7 +3,7 @@
 
 **In this workshop, I worked with a large dynamically allocated array of C++ Standard Library strings and compare the performance of copy and move operations on that collection.**
 
-Demonstarted key points:
+Demonstrated key points:
 - retrieve records from a text file using an input file stream object
 - count the number of records in a text file
 - monitor the time spent on a particular task using the std::chrono library
