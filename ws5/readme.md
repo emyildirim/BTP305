@@ -7,7 +7,9 @@ I created a class template that manages a family of collection of objects of typ
 
 My design works with collections of books and collections of movies, both loaded from files. The file information contains mistakes:
 
-Also created a lambda expression that fixes the price information about a book and a function object (functor) that fixes some spelling mistakes in the descriptions and titles for books or movies.
+- created a lambda expression that fixes the price information about a book
+- created a function object (functor) that fixes some spelling mistakes in the descriptions and titles for books or movies.
+
 In case of exceptional circumstances, my design generates exceptions and subsequently handles them
 
 the functor loads the misspelled words from a file, but if that file is missing, generates an exception.
