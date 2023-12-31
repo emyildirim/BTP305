@@ -1,4 +1,5 @@
 # BTP305
+3rd Semester Course
 Object-Oriented Software Development Using C++ from **[Seneca College](https://www.senecapolytechnic.ca/home.html)**
 
 ## Learning Outcomes
